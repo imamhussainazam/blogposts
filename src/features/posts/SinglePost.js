@@ -73,7 +73,7 @@ const navigate = useNavigate();
           <>
             <ReactDialogBox
               closeBox={()=>setOpen(false)}
-              modalWidth='30%'
+              modalWidth='60%'
               headerBackgroundColor='teal'
               headerTextColor='white'
               headerHeight='15'
