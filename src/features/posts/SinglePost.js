@@ -12,9 +12,17 @@ import 'react-js-dialog-box/dist/index.css'
     const SinglePost = () => {
         
 const dispatch=useDispatch();
+        
+
+        const posts = useSelector(selectAllPosts);
+        const location = useLocation();
+        const id = location.pathname.split("/")[1];
+        const post= posts.find(post=>{
+            if(post.id===id) return post;
+        })
         const [open,setOpen]=useState(false);
-        const [title, setTitle] = useState('')
-    const [content, setContent] = useState('')
+        const [title, setTitle] = useState(post.title)
+    const [content, setContent] = useState(post.content)
         const onTitleChanged = e => setTitle(e.target.value)
         const onContentChanged = e => setContent(e.target.value)
     
@@ -27,13 +35,6 @@ const dispatch=useDispatch();
 const handleBack=()=>{
     navigate("/")
 }
-
-        const posts = useSelector(selectAllPosts);
-        const location = useLocation();
-        const id = location.pathname.split("/")[1];
-        const post= posts.find(post=>{
-            if(post.id===id) return post;
-        })
 const navigate = useNavigate();
         const onEdit=()=>{
             setOpen(true);
