@@ -19,7 +19,7 @@ const AddPostForm = () => {
         if (title && content){
             dispatch(
                 postAdded(
-                    title, category,content
+                    title,content, category
                 )
             )
             setTitle('')
@@ -45,7 +45,7 @@ const AddPostForm = () => {
                 onChange = {onTitleChanged}
             />
 
-            <label htmlFor="postCategory">Category</label>
+            <label htmlFor="postCategory">Category:</label>
             <textarea
             name="postCategory"
             id="postCategory" 
